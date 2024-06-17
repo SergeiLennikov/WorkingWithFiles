@@ -45,8 +45,15 @@ def show_menu():
     print('6. Добавить новый контакт')
     print('7. Копировать данные из одного файла в другой')
     print('8. Выход')
-    choice = int(input('Выберите пункт меню: '))
-    return choice
+    while True:
+        try:
+            choice = int(input('Выберите пункт меню: '))
+            if 1 <= choice <= 8:
+                return choice
+            else:
+                print('Неверный выбор. Пожалуйста, выберите пункт от 1 до 8.')
+        except ValueError:
+            print('Неверный ввод. Пожалуйста, введите число.')
 
 def read_txt(filename):
     phone_book = []
