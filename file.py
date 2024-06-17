@@ -1,6 +1,7 @@
 def work_with_phonebook():
     choice = show_menu()
     phone_book = read_txt('phonebook.txt')
+    
 
     while choice!= 8:
         if choice == 1:
@@ -22,7 +23,7 @@ def work_with_phonebook():
             user_data = input('Введите новые данные: ')
             add_user(phone_book, user_data)
             write_txt('phonebook.txt', phone_book)
-        elif choice == 7:  # New feature: copy data from one file to another
+        elif choice == 7:  
             src_file = input('Введите имя исходного файла: ')
             dst_file = input('Введите имя целевого файла: ')
             line_num = int(input('Введите номер строки для копирования: '))
@@ -30,6 +31,9 @@ def work_with_phonebook():
             print(f'Строка {line_num} из файла {src_file} скопирована в файл {dst_file}')
 
         choice = show_menu()
+        if choice == 8:
+            write_txt('phonebook.txt', phone_book)
+            break
 
 def show_menu():
     print('Меню:')
